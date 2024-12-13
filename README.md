@@ -1,7 +1,7 @@
 # Account Geo-Heatmap
 
 ### About
-A proof of concept for creating geographic maps infused with account data. By presenting the data visually, users can understand not only the geography of their patch, but derive insights through the use of filters, coloring, and important account metrics.
+A proof of concept for creating geographic maps infused with account data. By presenting the data visually, users can understand not only the geography of their patch, but derive insights through the use of filters, coloring, and important account metrics. Made with Dash and Plotly.
 
 For example, by setting the size of the account marker based on total spend and setting the color of the account marker based on total LDOS, we can identify customers with high spend and high LDOS. Or, we can size by legacy switching and color by Cat 9k switching. 
 

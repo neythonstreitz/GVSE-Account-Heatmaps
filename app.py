@@ -12,7 +12,6 @@ def get_heatmap_data():
 
     # Upload Ready data
     ready_data_path = os.environ["READY_PATH"]
-    #ready_data_path = f"data/Caitie-ReadyReport-Full-Dec2024_241210468230930.xlsb"
     ready_data_df = pd.read_excel(ready_data_path, engine='pyxlsb')
 
     ready_keep_columns = ["SAV Name", "Business Entity", "Product List Price $", "LDOS FY",
@@ -23,7 +22,6 @@ def get_heatmap_data():
 
     # Upload SPOT data
     spot_data_path = os.environ["SPOT_PATH"]
-    #spot_data_path = f"data/Caitie-SPOT-Competitive.xlsx"
     spot_data_df = pd.read_excel(spot_data_path)
 
     spot_keep_columns = ["Account Name", "Top EquipMake Share%", "Top Provider Share%",
@@ -226,9 +224,9 @@ card_content = [
             html.P(id="spot-filter-text", children=["Color by SPOT Metric"], style={"display": "none"}),
             spot_radio_items,
             html.Br(),
-            html.P(id="cp-tech-filter-text", children=["Filter by Technology"], style={"display": "none"}),
+            html.P(id="cp-tech-filter-text", children=["Filter Total Spend by Technology"], style={"display": "none"}),
             tech_radio_items,
-            html.P(id="spot-vendor-text", children=["Filter by Top Equipment Share"], style={"display": "none"}),
+            html.P(id="spot-vendor-text", children=["Filter by Top Vendor Share"], style={"display": "none"}),
             spot_vendor_dropdown,
             html.Br(),
             html.Hr(),
@@ -318,7 +316,7 @@ def update_spot_filter_options(dropdown_selection):
         Input(component_id="size-by-radio", component_property="value"),
     ]
 )
-def create_mapbox(heatmap_focus, toggle_text, vertical_filter, data_filter, spot_filter, vendor_filter, size_by, color_by):
+def create_mapbox(heatmap_focus, toggle_text, vertical_filter, data_filter, spot_filter, vendor_filter, color_by, size_by):
 
     df = generate_account_frame(final_df, heatmap_focus, data_filter)
 
